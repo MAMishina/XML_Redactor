@@ -17,7 +17,7 @@ namespace XML_Redactor
         {
             if (textBox1.Text == "")   
             {
-                MessageBox.Show("Заполните все поля.", "Ошибка.");
+                MessageBox.Show("Заполните все поля.", "Ошибка."); 
             }
             else
             {
