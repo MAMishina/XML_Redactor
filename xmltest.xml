@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Employee>
+    <Name>Тест</Name>
+    <Age>18</Age>
+    <Programmer> True</Programmer>
+  </Employee>
+</NewDataSet>
