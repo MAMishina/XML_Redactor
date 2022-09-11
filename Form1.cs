@@ -8,6 +8,11 @@ namespace XML_Redactor
             InitializeComponent();
         }
 
+        /// <summary>
+        /// кнопка "добавить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addButton_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -24,13 +29,18 @@ namespace XML_Redactor
 
         }
 
+        /// <summary>
+        /// кнопка "сохранить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveButton_Click(object sender, EventArgs e)
 
         {
             try
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Text file  (*.xml)|*.xml|All files(*.*)|*.*";
+                SaveFileDialog sfd = new SaveFileDialog(); // создаем диалог сохранения файла
+                sfd.Filter = "Text file  (*.xml)|*.xml|All files(*.*)|*.*"; // устанавливаем фильтр допустимых значений
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     DataSet ds = new DataSet(); // создаем пока что пустой кэш данных
@@ -60,85 +70,11 @@ namespace XML_Redactor
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void Load()//тест метода для Артема
-        {
-            try
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Filter = "Text file  (*.txt)|*.txt|All files(*.*)|*.*";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    using (StreamReader sr = new StreamReader(ofd.FileName))
-                    {
-                        string lineFromFile = sr.ReadLine();
-                        while (lineFromFile != null)
-                        {
-
-                            string[] args = lineFromFile.Split(";");
-
-                            int n = dataGridView1.Rows.Add();
-                            dataGridView1.Rows[n].Cells[0].Value = args[0];
-                            dataGridView1.Rows[n].Cells[1].Value = args[1];
-                            dataGridView1.Rows[n].Cells[2].Value = args[2];
-                            lineFromFile = sr.ReadLine();
-                            MessageBox.Show(n.ToString());
-                            // dataGridView1.Rows[n].Cells[3].Value = args[3];
-                        }
-                    }
-                    MessageBox.Show("ok");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-
-        private void Save()//тест метода для Артема
-        {
-
-
-            try
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Text file  (*.txt)|*.txt|All files(*.*)|*.*";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    string forWrite = "";
-                    using (StreamWriter sw = new StreamWriter(sfd.FileName, false, System.Text.Encoding.Default))
-                    {
-
-                        foreach (DataGridViewRow dgv in dataGridView1.Rows)
-                        {
-                            forWrite += dgv.Cells[0].Value.ToString() + ";" + dgv.Cells[1].Value.ToString() + ";" +
-                                dgv.Cells[2].Value.ToString() + "\n";
-                            //dataGridView1.Rows[n].Cells[3].Value = forWrite;
-                        }
-                        MessageBox.Show("File was saved");
-                        sw.WriteLine(forWrite);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-
-
-
-
-
-
+        /// <summary>
+        /// кнопка "загрузить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadButton_Click(object sender, EventArgs e)
         {
             try
@@ -176,6 +112,11 @@ namespace XML_Redactor
 
         }
 
+        /// <summary>
+        /// действие при выборе строки в dataGridView1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -185,6 +126,11 @@ namespace XML_Redactor
 
         }
 
+        /// <summary>
+        /// кнопка "редактировать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -223,6 +169,11 @@ namespace XML_Redactor
             {
                 MessageBox.Show("Выберите строку для удаления.", "Ошибка.");
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
