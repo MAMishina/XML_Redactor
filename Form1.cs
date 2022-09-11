@@ -9,7 +9,7 @@ namespace XML_Redactor
         }
 
         /// <summary>
-        /// кнопка "добавить"
+        /// ГЄГ­Г®ГЇГЄГ  "Г¤Г®ГЎГ ГўГЁГІГј"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -17,7 +17,7 @@ namespace XML_Redactor
         {
             if (textBox1.Text == "")   
             {
-                MessageBox.Show("Заполните все поля.", "Ошибка."); 
+                MessageBox.Show("Г‡Г ГЇГ®Г«Г­ГЁГІГҐ ГўГ±ГҐ ГЇГ®Г«Гї.", "ГЋГёГЁГЎГЄГ ."); 
             }
             else
             {
@@ -26,11 +26,12 @@ namespace XML_Redactor
                 dataGridView1.Rows[n].Cells[1].Value = numericUpDown1.Value;
                 dataGridView1.Rows[n].Cells[2].Value = comboBox1.Text;
             }
+            ///fghfhjdfjgdjgdjgfdjgd
 
         }
 
         /// <summary>
-        /// кнопка "сохранить"
+        /// ГЄГ­Г®ГЇГЄГ  "Г±Г®ГµГ°Г Г­ГЁГІГј"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -39,29 +40,29 @@ namespace XML_Redactor
         {
             try
             {
-                SaveFileDialog sfd = new SaveFileDialog(); // создаем диалог сохранения файла
-                sfd.Filter = "Text file  (*.xml)|*.xml|All files(*.*)|*.*"; // устанавливаем фильтр допустимых значений
+                SaveFileDialog sfd = new SaveFileDialog(); // Г±Г®Г§Г¤Г ГҐГ¬ Г¤ГЁГ Г«Г®ГЈ Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГґГ Г©Г«Г 
+                sfd.Filter = "Text file  (*.xml)|*.xml|All files(*.*)|*.*"; // ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГґГЁГ«ГјГІГ° Г¤Г®ГЇГіГ±ГІГЁГ¬Г»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    DataSet ds = new DataSet(); // создаем пока что пустой кэш данных
-                    DataTable dt = new DataTable(); // создаем пока что пустую таблицу данных
-                    dt.TableName = "Employee"; // название таблицы
-                    dt.Columns.Add("Name"); // название колонок
+                    DataSet ds = new DataSet(); // Г±Г®Г§Г¤Г ГҐГ¬ ГЇГ®ГЄГ  Г·ГІГ® ГЇГіГ±ГІГ®Г© ГЄГЅГё Г¤Г Г­Г­Г»Гµ
+                    DataTable dt = new DataTable(); // Г±Г®Г§Г¤Г ГҐГ¬ ГЇГ®ГЄГ  Г·ГІГ® ГЇГіГ±ГІГіГѕ ГІГ ГЎГ«ГЁГ¶Гі Г¤Г Г­Г­Г»Гµ
+                    dt.TableName = "Employee"; // Г­Г Г§ГўГ Г­ГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
+                    dt.Columns.Add("Name"); // Г­Г Г§ГўГ Г­ГЁГҐ ГЄГ®Г«Г®Г­Г®ГЄ
                     dt.Columns.Add("Age");
                     dt.Columns.Add("Programmer");
-                    ds.Tables.Add(dt); //в ds создается таблица, с названием и колонками, созданными выше
+                    ds.Tables.Add(dt); //Гў ds Г±Г®Г§Г¤Г ГҐГІГ±Гї ГІГ ГЎГ«ГЁГ¶Г , Г± Г­Г Г§ГўГ Г­ГЁГҐГ¬ ГЁ ГЄГ®Г«Г®Г­ГЄГ Г¬ГЁ, Г±Г®Г§Г¤Г Г­Г­Г»Г¬ГЁ ГўГ»ГёГҐ
 
-                    foreach (DataGridViewRow r in dataGridView1.Rows) // пока в dataGridView1 есть строки
+                    foreach (DataGridViewRow r in dataGridView1.Rows) // ГЇГ®ГЄГ  Гў dataGridView1 ГҐГ±ГІГј Г±ГІГ°Г®ГЄГЁ
                     {
-                        DataRow row = ds.Tables["Employee"].NewRow(); // создаем новую строку в таблице, занесенной в ds
-                        row["Name"] = r.Cells[0].Value;  //в столбец этой строки заносим данные из первого столбца dataGridView1
-                        row["Age"] = r.Cells[1].Value; // то же самое со вторыми столбцами
-                        row["Programmer"] = r.Cells[2].Value; //то же самое с третьими столбцами
-                        ds.Tables["Employee"].Rows.Add(row); //добавление всей этой строки в таблицу ds.
+                        DataRow row = ds.Tables["Employee"].NewRow(); // Г±Г®Г§Г¤Г ГҐГ¬ Г­Г®ГўГіГѕ Г±ГІГ°Г®ГЄГі Гў ГІГ ГЎГ«ГЁГ¶ГҐ, Г§Г Г­ГҐГ±ГҐГ­Г­Г®Г© Гў ds
+                        row["Name"] = r.Cells[0].Value;  //Гў Г±ГІГ®Г«ГЎГҐГ¶ ГЅГІГ®Г© Г±ГІГ°Г®ГЄГЁ Г§Г Г­Г®Г±ГЁГ¬ Г¤Г Г­Г­Г»ГҐ ГЁГ§ ГЇГҐГ°ГўГ®ГЈГ® Г±ГІГ®Г«ГЎГ¶Г  dataGridView1
+                        row["Age"] = r.Cells[1].Value; // ГІГ® Г¦ГҐ Г±Г Г¬Г®ГҐ Г±Г® ГўГІГ®Г°Г»Г¬ГЁ Г±ГІГ®Г«ГЎГ¶Г Г¬ГЁ
+                        row["Programmer"] = r.Cells[2].Value; //ГІГ® Г¦ГҐ Г±Г Г¬Г®ГҐ Г± ГІГ°ГҐГІГјГЁГ¬ГЁ Г±ГІГ®Г«ГЎГ¶Г Г¬ГЁ
+                        ds.Tables["Employee"].Rows.Add(row); //Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГўГ±ГҐГ© ГЅГІГ®Г© Г±ГІГ°Г®ГЄГЁ Гў ГІГ ГЎГ«ГЁГ¶Гі ds.
                     }
                     ds.WriteXml(sfd.FileName);
                     
-                    MessageBox.Show("XML файл успешно сохранен.", "Выполнено.");
+                    MessageBox.Show("XML ГґГ Г©Г« ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­.", "Г‚Г»ГЇГ®Г«Г­ГҐГ­Г®.");
                 }
             }
             catch (Exception ex)
@@ -71,7 +72,7 @@ namespace XML_Redactor
         }
 
         /// <summary>
-        /// кнопка "загрузить"
+        /// ГЄГ­Г®ГЇГЄГ  "Г§Г ГЈГ°ГіГ§ГЁГІГј"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,9 +80,9 @@ namespace XML_Redactor
         {
             try
             {
-                if (dataGridView1.Rows.Count > 0) //если в таблице больше нуля строк
+                if (dataGridView1.Rows.Count > 0) //ГҐГ±Г«ГЁ Гў ГІГ ГЎГ«ГЁГ¶ГҐ ГЎГ®Г«ГјГёГҐ Г­ГіГ«Гї Г±ГІГ°Г®ГЄ
                 {
-                    MessageBox.Show("Очистите поле перед загрузкой нового файла.", "Ошибка.");
+                    MessageBox.Show("ГЋГ·ГЁГ±ГІГЁГІГҐ ГЇГ®Г«ГҐ ГЇГҐГ°ГҐГ¤ Г§Г ГЈГ°ГіГ§ГЄГ®Г© Г­Г®ГўГ®ГЈГ® ГґГ Г©Г«Г .", "ГЋГёГЁГЎГЄГ .");
                 }
                 else
                 {
@@ -90,15 +91,15 @@ namespace XML_Redactor
                     if (ofd.ShowDialog() == DialogResult.Cancel)
                         return;
 
-                    DataSet ds = new DataSet(); // создаем новый пустой кэш данных
-                    ds.ReadXml(ofd.FileName); // записываем в него XML-данные из файла
+                    DataSet ds = new DataSet(); // Г±Г®Г§Г¤Г ГҐГ¬ Г­Г®ГўГ»Г© ГЇГіГ±ГІГ®Г© ГЄГЅГё Г¤Г Г­Г­Г»Гµ
+                    ds.ReadXml(ofd.FileName); // Г§Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Гў Г­ГҐГЈГ® XML-Г¤Г Г­Г­Г»ГҐ ГЁГ§ ГґГ Г©Г«Г 
 
                     foreach (DataRow item in ds.Tables["Employee"].Rows)
                     {
-                        int n = dataGridView1.Rows.Add(); // добавляем новую сроку в dataGridView1
-                        dataGridView1.Rows[n].Cells[0].Value = item["Name"]; // заносим в первый столбец созданной строки данные из первого столбца таблицы ds.
-                        dataGridView1.Rows[n].Cells[1].Value = item["Age"]; // то же самое со вторым столбцом
-                        dataGridView1.Rows[n].Cells[2].Value = item["Programmer"]; // то же самое с третьим столбцом
+                        int n = dataGridView1.Rows.Add(); // Г¤Г®ГЎГ ГўГ«ГїГҐГ¬ Г­Г®ГўГіГѕ Г±Г°Г®ГЄГі Гў dataGridView1
+                        dataGridView1.Rows[n].Cells[0].Value = item["Name"]; // Г§Г Г­Г®Г±ГЁГ¬ Гў ГЇГҐГ°ГўГ»Г© Г±ГІГ®Г«ГЎГҐГ¶ Г±Г®Г§Г¤Г Г­Г­Г®Г© Г±ГІГ°Г®ГЄГЁ Г¤Г Г­Г­Г»ГҐ ГЁГ§ ГЇГҐГ°ГўГ®ГЈГ® Г±ГІГ®Г«ГЎГ¶Г  ГІГ ГЎГ«ГЁГ¶Г» ds.
+                        dataGridView1.Rows[n].Cells[1].Value = item["Age"]; // ГІГ® Г¦ГҐ Г±Г Г¬Г®ГҐ Г±Г® ГўГІГ®Г°Г»Г¬ Г±ГІГ®Г«ГЎГ¶Г®Г¬
+                        dataGridView1.Rows[n].Cells[2].Value = item["Programmer"]; // ГІГ® Г¦ГҐ Г±Г Г¬Г®ГҐ Г± ГІГ°ГҐГІГјГЁГ¬ Г±ГІГ®Г«ГЎГ¶Г®Г¬
                     }
                 }
                     
@@ -113,7 +114,7 @@ namespace XML_Redactor
         }
 
         /// <summary>
-        /// действие при выборе строки в dataGridView1
+        /// Г¤ГҐГ©Г±ГІГўГЁГҐ ГЇГ°ГЁ ГўГ»ГЎГ®Г°ГҐ Г±ГІГ°Г®ГЄГЁ Гў dataGridView1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,7 +126,7 @@ namespace XML_Redactor
         }
 
         /// <summary>
-        /// кнопка "редактировать"
+        /// ГЄГ­Г®ГЇГЄГ  "Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -140,7 +141,7 @@ namespace XML_Redactor
             }
             else
             {
-                MessageBox.Show("Выберите строку для редактирования.", "Ошибка.");
+                MessageBox.Show("Г‚Г»ГЎГҐГ°ГЁГІГҐ Г±ГІГ°Г®ГЄГі Г¤Г«Гї Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї.", "ГЋГёГЁГЎГЄГ .");
             }
         }
 
@@ -153,7 +154,7 @@ namespace XML_Redactor
             }
             else
             {
-                MessageBox.Show("Таблица пустая.", "Ошибка.");
+                MessageBox.Show("Г’Г ГЎГ«ГЁГ¶Г  ГЇГіГ±ГІГ Гї.", "ГЋГёГЁГЎГЄГ .");
             }
         }
 
@@ -162,11 +163,11 @@ namespace XML_Redactor
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int n = dataGridView1.SelectedRows[0].Index;
-                dataGridView1.Rows.RemoveAt(n); //удаление
+                dataGridView1.Rows.RemoveAt(n); //ГіГ¤Г Г«ГҐГ­ГЁГҐ
             }
             else
             {
-                MessageBox.Show("Выберите строку для удаления.", "Ошибка.");
+                MessageBox.Show("Г‚Г»ГЎГҐГ°ГЁГІГҐ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГіГ¤Г Г«ГҐГ­ГЁГї.", "ГЋГёГЁГЎГЄГ .");
             }
         }
 
