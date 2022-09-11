@@ -15,7 +15,7 @@ namespace XML_Redactor
         /// <param name="e"></param>
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBox1.Text == "")   
             {
                 MessageBox.Show("Заполните все поля.", "Ошибка.");
             }
@@ -149,7 +149,7 @@ namespace XML_Redactor
 
             if (dataGridView1.Rows.Count > 0)
             {
-                dataGridView1.Rows.Clear();                
+                dataGridView1.Rows.Clear();
             }
             else
             {
