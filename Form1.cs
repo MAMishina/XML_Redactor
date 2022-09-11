@@ -120,10 +120,8 @@ namespace XML_Redactor
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            int n = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
-            numericUpDown1.Value = n;
+            numericUpDown1.Value = (decimal)dataGridView1.SelectedRows[0].Cells[1].Value;
             comboBox1.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-
         }
 
         /// <summary>
@@ -163,7 +161,8 @@ namespace XML_Redactor
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index); //удаление
+                int n = dataGridView1.SelectedRows[0].Index;
+                dataGridView1.Rows.RemoveAt(n); //удаление
             }
             else
             {
