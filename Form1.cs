@@ -205,7 +205,7 @@ namespace XML_Redactor
 
             if (dataGridView1.Rows.Count > 0)
             {
-                dataGridView1.Rows.Clear();               
+                dataGridView1.Rows.Clear();                
             }
             else
             {
